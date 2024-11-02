@@ -1,3 +1,5 @@
+//GFG SOLUTION
+
 #include<iostream>
 using namespace std;
 #include<queue>
@@ -43,3 +45,67 @@ int main()
         cout << i << " ";
     return 0;
 }
+
+
+// LEETCODE SOLUTION
+
+class Solution {
+public:
+    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+
+        deque<int>dq;
+
+        vector<int>ans;
+
+        //process first window
+        for(int i=0;i<k;i++){
+            int element=nums[i];
+            // will get inseerted in queue irrespectively
+            //check if the elements inserted are smaller than the current element 
+            
+            while(!dq.empty() && nums[dq.back()]<element){
+                dq.pop_back();
+            }
+            dq.push_back(i);
+        }
+
+        int index=dq.front();
+        int element=nums[index];
+
+        ans.push_back(element);
+
+        //process remaining windows
+        for(int i=k;i<nums.size();i++){
+
+            if(!dq.empty()&& dq.front()<i-k+1){
+                dq.pop_front();
+            }
+
+            int element=nums[i];
+            // will get inseerted in queue irrespectively
+            //check if the elements inserted are smaller than the current element 
+            
+            while(!dq.empty() && nums[dq.back()]<element){
+                dq.pop_back();
+            }
+            
+            
+            dq.push_back(i);
+
+            index=dq.front();
+            element=nums[index];
+
+            ans.push_back(element);
+
+
+        }
+        return ans;
+
+
+
+
+
+
+        
+    }
+};
