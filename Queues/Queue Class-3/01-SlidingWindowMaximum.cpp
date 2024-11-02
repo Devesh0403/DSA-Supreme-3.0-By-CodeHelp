@@ -63,28 +63,35 @@ public:
             // will get inseerted in queue irrespectively
             //check if the elements inserted are smaller than the current element 
             
+            // POP the elements from back till they are smaller than the element
             while(!dq.empty() && nums[dq.back()]<element){
                 dq.pop_back();
             }
+
+            // push the new element to the back
             dq.push_back(i);
         }
-
+        
+        // push the front element to the answer as it is the largest element in the first window
         int index=dq.front();
         int element=nums[index];
 
         ans.push_back(element);
 
-        //process remaining windows
+        //process the remaining windows
         for(int i=k;i<nums.size();i++){
-
+            
+            // if the front element goes out of the window range, pop it
+            // the formula to be in the range is i-k+1
             if(!dq.empty()&& dq.front()<i-k+1){
                 dq.pop_front();
             }
 
             int element=nums[i];
-            // will get inseerted in queue irrespectively
+            // will get inserted in queue irrespectively
             //check if the elements inserted are smaller than the current element 
             
+            //pop the back elements till they are smaller than the element
             while(!dq.empty() && nums[dq.back()]<element){
                 dq.pop_back();
             }
