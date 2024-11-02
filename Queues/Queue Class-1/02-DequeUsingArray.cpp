@@ -130,16 +130,18 @@ class Deque{
         
     }
     void pushBack(int val){
-        
+        //overflow condition
         if(rear==size-1){
             cout<<"Overflow";
         }
+        //empty queue
         else if(front==-1&&rear==-1){
             rear++;
             front++;
             arr[rear]=val;
             
         }
+        //Normal case
         else{
             rear++;
             arr[rear]=val;
@@ -176,7 +178,7 @@ class Deque{
             rear--;
         }
         
-        //Normal
+        //Normal case 
         else{
             arr[rear]=-1;
             rear--;
