@@ -72,6 +72,7 @@ void levelOrderTraversalWithEOL(Node* root){
     // add the elements to the queue
     // till it is empty
     while(!q.empty()){
+        // if front element is NULL,pop it. if queue is empty
         if(q.front()==NULL){
             q.pop();
             if(!q.empty()){
