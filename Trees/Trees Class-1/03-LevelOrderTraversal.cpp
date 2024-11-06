@@ -67,6 +67,7 @@ void levelOrderTraversalWithEOL(Node* root){
     q.push(root);
     q.push(NULL);
     //push the root
+    //push nULL value to the queue as well
     
     // add the elements to the queue
     // till it is empty
