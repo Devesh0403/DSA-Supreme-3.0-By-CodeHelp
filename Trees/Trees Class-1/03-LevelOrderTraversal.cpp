@@ -47,11 +47,14 @@ void levelOrderTraversal(Node* root){
     // add the elements to the queue
     // till it is empty
     while(!q.empty()){
+        //obtain the front element and pop it
         Node* front=q.front();
         q.pop();
         
+        //print the front element
         cout<<front->data<<" ";
         
+        //if the front element has any children, push it to the queue
         if(front->left!=NULL){
             q.push(front->left);
         }
@@ -82,11 +85,10 @@ void levelOrderTraversalWithEOL(Node* root){
             }
             
         }
-        else{
+        else if(q.front()!=NULL){
             Node* front=q.front();
-        q.pop();
-        
-        cout<<front->data<<" ";
+            q.pop();
+            cout<<front->data<<" ";
         
         if(front->left!=NULL){
             q.push(front->left);

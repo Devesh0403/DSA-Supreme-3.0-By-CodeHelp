@@ -34,7 +34,8 @@ int getMin(TreeNode* root){
         if(root==NULL){
             return NULL;
         }
-
+        // Case 1- When the root ki val is same as the key. 
+        // Then check for children- 4 CASES
         if(root->val==key){
             //case 1- No child
             if(root->left==NULL&& root->right==NULL){
