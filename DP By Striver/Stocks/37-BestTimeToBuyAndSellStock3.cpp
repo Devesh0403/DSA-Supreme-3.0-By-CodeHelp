@@ -10,18 +10,7 @@ int recursive(vector<int>&prices,int index,int buy,int cap){
             recursive(prices,index+1,0,cap));
         }
     }
-int recursive(vector<int>&prices,int index,int buy,int cap){
-        if(index==prices.size()||cap==0)return 0;
 
-        if(buy){
-            return max(-prices[index]+recursive(prices,index+1,0,cap),
-            recursive(prices,index+1,1,cap));
-        }
-        else{
-            return max(prices[index]+recursive(prices,index+1,1,cap-1),
-            recursive(prices,index+1,0,cap));
-        }
-    }
     int memoization(vector<int>&prices,int index,int buy,int cap,vector<vector<vector<int>>>&dp){
         if(index==prices.size()||cap==0)return 0;
 
