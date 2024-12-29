@@ -3,6 +3,10 @@
         "vector": "cpp",
         "iosfwd": "cpp",
         "variant": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "__split_buffer": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "string": "cpp"
     }
 }
