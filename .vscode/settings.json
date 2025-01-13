@@ -13,6 +13,7 @@
         "__hash_table": "cpp",
         "unordered_map": "cpp",
         "istream": "cpp",
-        "__node_handle": "cpp"
+        "__node_handle": "cpp",
+        "iostream": "cpp"
     }
 }
