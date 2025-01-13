@@ -1,3 +1,4 @@
+// METHOD 1-
 int recursion(vector<int>&arr,int index){
         if(index==0)return arr[0];
         if (index < 0) return 0;
@@ -14,8 +15,10 @@ int recursion(vector<int>&arr,int index){
         
         // code here
     }
+//  Time Complexity: O(2^N)
+//  Space Complexity: O(N) Recursive Stack Space
 
-
+// METHOD 1-
     int memoization(vector<int>&arr,int index,vector<int>&dp){
         if(index==0)return arr[0];
         if (index < 0) return 0;
@@ -37,3 +40,14 @@ int recursion(vector<int>&arr,int index){
         
         // code here
     }
+
+//  Time Complexity: O(N)
+//  Space Complexity: O(N) Recursive Stack Space & DP Array 
+
+// METHOD 3- Tabulation
+
+
+
+
+
+// METHOD 4- Space Optimization
