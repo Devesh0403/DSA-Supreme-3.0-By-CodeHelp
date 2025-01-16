@@ -4,7 +4,7 @@ int recursive(int n) {
 
         int ans=0;
         for(int i=1;i<=n;i++){
-            ans+=numTrees(i-1)*numTrees(n-i);
+            ans+=recursive(i-1)*recursive(n-i);
 
         }
         return ans;
