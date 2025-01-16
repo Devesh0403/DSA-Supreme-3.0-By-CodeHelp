@@ -17,6 +17,16 @@ class Node{
     }
     
 };
+int getLength(Node* head){
+    Node* temp=head;
+    int count=0;
+    while(temp){
+        temp=temp->next;
+        count++;
+        
+    }
+    return count;
+}
 void printLL(Node* head) {
     while (head != NULL) {
         cout << head->data << " ";
@@ -31,4 +41,6 @@ int main() {
     head->next->next->next=new Node(3);
     
     printLL(head);
+    cout<<endl;
+    cout<<getLength(head);
 }
