@@ -1,10 +1,11 @@
+
 class Solution {
 public:
-    void diameter(TreeNode* root,int& diameter){
+    int diameterHelper(TreeNode* root,int &diameter){
         if(root==NULL)return 0;
 
-        int lh=diameter(root,diameter);
-        int rh=diameter(root,diameter);
+        int lh=diameterHelper(root->left,diameter);
+        int rh=diameterHelper(root->right,diameter);
 
         diameter=max(diameter,rh+lh);
         
@@ -16,7 +17,7 @@ public:
         }
 
         int diameter=0;
-        diameter(root,diameter);
+        diameterHelper(root,diameter);
         return diameter;
         
     }
