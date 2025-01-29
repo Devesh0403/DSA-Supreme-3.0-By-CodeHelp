@@ -1,37 +1,28 @@
 //SOLUTION-1 Using Inorder Sorted Array
 class Solution {
 public:
-    void inorder(TreeNode* root,int &count,int k,TreeNode* &ans){
-        if(root==NULL){
-            return;
-        }
-        //Left part
-        inorder(root->left,count,k,ans);
+    void check(TreeNode* root, vector<int>&inorder){
+        if(!root)return;
 
-        //Current Node
-        count++;
-        if(count==k){
-            ans=root;
-            return;
-            
-        }
-
-        //Right part
-        inorder(root->right,count,k,ans);
-
+        check(root->left,inorder);
+        inorder.push_back(root->val);
+        check(root->right,inorder);
 
     }
     int kthSmallest(TreeNode* root, int k) {
-        vector<int>arr;
         TreeNode* ans=NULL;
         int count=0;
-        inorder(root,count,k,ans);
-        return ans->val;
+        vector<int>inorder;
 
-
+        check(root,inorder);
+        return inorder[k-1];
         
     }
 };
+// TC- O(N)
+// SC- O(N) [ARRAY]
+
+
 
 
 
