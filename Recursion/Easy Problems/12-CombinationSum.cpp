@@ -24,3 +24,5 @@ void helper(vector<int>& nums,vector<vector<int>>&ans,int index,int target,vecto
         
     }
 };
+// TC - O(2^N)
+// SC - O(N)
