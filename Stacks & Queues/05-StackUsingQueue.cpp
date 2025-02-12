@@ -1,6 +1,7 @@
 class MyStack {
 public:
     queue<int>q;
+    int size;
     MyStack() {
     }
     
@@ -11,32 +12,32 @@ public:
             q.push(q.front());
             q.pop();
         }
+        size++;
         
     }
+    // Time Complexity: O(N)
     
     int pop() {
         int top=q.front();
         q.pop();
+        size--;
         return top;
         
     }
-    
+    // Time Complexity: O(1)
+
     int top() {
         return q.front();
         
     }
+    // Time Complexity: O(1)
     
     bool empty() {
-        return q.empty();
+        return size==0;
         
     }
 };
 
-/**
- * Your MyStack object will be instantiated and called as such:
- * MyStack* obj = new MyStack();
- * obj->push(x);
- * int param_2 = obj->pop();
- * int param_3 = obj->top();
- * bool param_4 = obj->empty();
- */
+// Time Complexity: O(N)
+
+// Space Complexity: O(N)
