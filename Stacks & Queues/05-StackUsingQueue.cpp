@@ -3,6 +3,7 @@ public:
     queue<int>q;
     int size;
     MyStack() {
+        size=0;
     }
     
     void push(int x) {
