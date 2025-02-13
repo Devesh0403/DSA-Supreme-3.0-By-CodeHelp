@@ -22,24 +22,24 @@ class Solution {
 // Space Complexity: O(N)
 
 //METHOD 2 - MEMOIZATION
-int memoization(int index,vector<int>&height,vector<int>&dp){
+int memoization(vector<int>&height,int index,vector<int>&dp){
+        
         if(index==0)return 0;
-        if(index==1)return abs(height[index]-height[index-1]);
-        
         if(dp[index]!=-1)return dp[index];
+        int twoJumps=INT_MAX;
+        int oneJump=memoization(height,index-1,dp)+abs(height[index]-height[index-1]);
         
-        int left=memoization(index-1,height,dp)+abs(height[index]-height[index-1]);
-        int right=INT_MAX;
-        if(index>1){
-            right=memoization(index-2,height,dp)+abs(height[index]-height[index-2]);
-        }
+        if(index>1)twoJumps=memoization(height,index-2,dp)+abs(height[index]-height[index-2]);
         
-        return dp[index]=min(left,right);
+        return dp[index]=  min(oneJump,twoJumps);
+        
+        
     }
-    int minimumEnergy(vector<int>& height, int n) {
-        vector<int>dp(n+1,-1);
-        return memoization(n-1,height,dp);
-        // Code here
+    int minCost(vector<int>& height) {
+        int index=height.size()-1;
+        vector<int>dp(index+1,-1);
+        return memoization(height,index,dp);
+        
     }
 
 // Time Complexity: O(N)
